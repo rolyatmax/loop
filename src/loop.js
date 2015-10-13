@@ -43,6 +43,5 @@ function clear() {
 
 export default {
     register,
-    stop,
     clear
 };

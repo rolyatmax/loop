@@ -2,7 +2,7 @@
 An object that registers callbacks for a single requestAnimationFrame loop.
 
 ```javascript
-import {register, clear, stop} from 'loop';
+import {register, clear} from 'loop';
 
 // returns a function which can be called to unregister the callback
 // passed to this register function
@@ -12,6 +12,5 @@ let unregister = register(timestamp => {
     return shouldKeepLooping;
 });
 
-stop(); // stops the loop
 clear(); // stops the loop and clears out all registered callbacks
 ```
