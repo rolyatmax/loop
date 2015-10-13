@@ -11,4 +11,16 @@ describe('loop register', function() {
         let unregister = register(() => null);
         expect(typeof unregister).toBe('function');
     });
+
+    // More tests
+    // ----------
+    // register should add a callback
+    // that callback should be run on the animation frame
+    // returning false from the callback should cause it to be removed
+    // returning true from the callback should cause it to be called again on the next tick
+    // the callback should have a timestamp value passed into it
+    // register should start the loop
+    // the loop should stop running if all callbacks have been removed
+    // unregister should remove the callback
+    // clear should stop the loop and remove all callbacks
 });
