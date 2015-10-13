@@ -1,5 +1,5 @@
 # loop
-An object that registers callbacks for a single requestAnimationFrame loop.
+An object that registers callbacks for a single `requestAnimationFrame` loop.
 
 ```javascript
 import {register, clear} from 'loop';
