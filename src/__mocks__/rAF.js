@@ -1,8 +1,4 @@
 export default {
-    requestAnimationFrame: function requestAnimationFrameMock(cb) {
-
-    },
-    cancelAnimationFrame: function cancelAnimationFrameMock(token) {
-
-    }
+    requestAnimationFrame: cb => setTimeout(() => cb(1234), 16),
+    cancelAnimationFrame: token => clearTimeout(token)
 };
