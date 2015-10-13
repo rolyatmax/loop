@@ -1,3 +1,6 @@
+import {requestAnimationFrame, cancelAnimationFrame} from './rAF';
+
+
 let callbacks = [];
 let running = false;
 let request = null;
