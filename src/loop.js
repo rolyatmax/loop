@@ -17,6 +17,16 @@ function register(cb) {
     if (!running) {
         request = requestAnimationFrame(loop);
     }
+
+    function remove() {
+        let index = callbacks.indexOf(cb);
+        if (index < 0) {
+            return;
+        }
+        callbacks.splice(index, 1);
+    }
+
+    return remove;
 }
 
 function stop() {

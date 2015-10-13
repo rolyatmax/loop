@@ -4,7 +4,9 @@ An object that registers callbacks for a single requestAnimationFrame loop.
 ```javascript
 import {register, clear, stop} from 'loop';
 
-register(t => {
+// returns a function which can be called to unregister the callback
+// passed to this register function
+let unregister = register(t => {
     // do stuff here
     return shouldKeepAnimating;
 });
