@@ -12,6 +12,7 @@ function loop(t) {
         request = requestAnimationFrame(loop);
     } else {
         running = false;
+        request = null;
     }
 }
 
