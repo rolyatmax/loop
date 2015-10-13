@@ -2,13 +2,15 @@
   "name": "loop",
   "version": "0.0.1",
   "description": "An object that registers callbacks for a single requestAnimationFrame loop.",
-  "main": "build/build.js",
+  "main": "src/loop.js",
   "scripts": {
     "test": "jest",
-    "watch": "mkdir -p build && watchify src/loop.js -o build/build.js -dv",
     "lint": "eslint ."
   },
-  "repository": "git@github.com:rolyatmax/loop.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolyatmax/loop.git"
+  },
   "author": "Taylor Baldwin <taylorbaldwin@gmail.com> (https://tbaldw.in)",
   "license": "ISC",
   "devDependencies": {
