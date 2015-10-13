@@ -6,9 +6,10 @@ import {register, clear, stop} from 'loop';
 
 // returns a function which can be called to unregister the callback
 // passed to this register function
-let unregister = register(t => {
-    // do stuff here
-    return shouldKeepAnimating;
+// timestamp is the value normally passed to requestAnimationFrame callbacks
+let unregister = register(timestamp => {
+    // should return a boolean indicating if the callback should be called on the next frame
+    return shouldKeepLooping;
 });
 
 stop(); // stops the loop
