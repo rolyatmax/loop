@@ -4,7 +4,6 @@ jest.dontMock('../src/loop');
 
 // must use `require` as `import` is always hoisted
 let {register, clear} = require('../src/loop');
-let {requestAnimationFrame} = require('../src/rAF');
 
 
 describe('loop', function() {

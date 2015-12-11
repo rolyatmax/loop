@@ -18,7 +18,7 @@
     "babel-jest": "^5.3.0",
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
-    "eslint": "^1.5.1",
+    "eslint": "^1.10.3",
     "jest-cli": "^0.5.10",
     "watchify": "^3.4.0"
   },

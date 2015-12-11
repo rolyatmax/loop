@@ -2,21 +2,15 @@ import {requestAnimationFrame, cancelAnimationFrame} from './rAF';
 
 
 let callbacks = [];
-let running = false;
 let request = null;
 
 function loop(t) {
-    running = true;
     callbacks = callbacks.map(cb => cb(t) ? cb : null).filter(cb => cb);
-    if (callbacks.length) {
-        request = requestAnimationFrame(loop);
-    } else {
-        running = false;
-        request = null;
-    }
+    request = callbacks.length ? requestAnimationFrame(loop) : null;
 }
 
 function register(cb) {
+    let running = !!callbacks.length;
     callbacks.push(cb);
     if (!running) {
         request = requestAnimationFrame(loop);
@@ -31,14 +25,9 @@ function register(cb) {
     };
 }
 
-function stop() {
+function clear() {
     cancelAnimationFrame(request);
     request = null;
-    running = false;
-}
-
-function clear() {
-    stop();
     callbacks = [];
 }
 
