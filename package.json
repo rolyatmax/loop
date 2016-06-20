@@ -2,7 +2,7 @@
   "name": "loop",
   "version": "0.0.1",
   "description": "An object that registers callbacks for a single requestAnimationFrame loop.",
-  "main": "src/loop.js",
+  "main": "loop.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint ."
