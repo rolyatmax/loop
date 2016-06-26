@@ -9,7 +9,7 @@ function loop(t) {
     request = callbacks.length ? requestAnimationFrame(loop) : null;
 }
 
-function register(cb) {
+export function register(cb) {
     let running = !!callbacks.length;
     callbacks.push(cb);
     if (!running) {
@@ -25,13 +25,8 @@ function register(cb) {
     };
 }
 
-function clear() {
+export function clear() {
     cancelAnimationFrame(request);
     request = null;
     callbacks = [];
 }
-
-export default {
-    register,
-    clear
-};
