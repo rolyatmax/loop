@@ -1,6 +1,6 @@
 {
   "name": "loop",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An object that registers callbacks for a single requestAnimationFrame loop.",
   "main": "lib/loop.js",
   "scripts": {

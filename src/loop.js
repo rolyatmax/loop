@@ -1,32 +1,36 @@
 import {requestAnimationFrame, cancelAnimationFrame} from './rAF';
 
 
-let callbacks = [];
-let request = null;
+export function createLoop() {
+    let callbacks = [];
+    let request = null;
 
-function loop(t) {
-    callbacks = callbacks.map(cb => cb(t) ? cb : null).filter(cb => cb);
-    request = callbacks.length ? requestAnimationFrame(loop) : null;
-}
-
-export function register(cb) {
-    let running = !!callbacks.length;
-    callbacks.push(cb);
-    if (!running) {
-        request = requestAnimationFrame(loop);
+    function loop(t) {
+        callbacks = callbacks.filter(cb => cb(t));
+        request = callbacks.length ? requestAnimationFrame(loop) : null;
     }
 
-    return function remove() {
-        let index = callbacks.indexOf(cb);
-        if (index < 0) {
-            return;
+    function register(cb) {
+        let running = !!callbacks.length;
+        callbacks.push(cb);
+        if (!running) {
+            request = requestAnimationFrame(loop);
         }
-        callbacks.splice(index, 1);
-    };
-}
 
-export function clear() {
-    cancelAnimationFrame(request);
-    request = null;
-    callbacks = [];
+        return function remove() {
+            let index = callbacks.indexOf(cb);
+            if (index < 0) {
+                return;
+            }
+            callbacks.splice(index, 1);
+        };
+    }
+
+    function clear() {
+        cancelAnimationFrame(request);
+        request = null;
+        callbacks = [];
+    }
+
+    return {register, clear};
 }

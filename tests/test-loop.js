@@ -3,7 +3,8 @@
 jest.dontMock('../src/loop');
 
 // must use `require` as `import` is always hoisted
-let {register, clear} = require('../src/loop');
+let {createLoop} = require('../src/loop');
+let {register, clear} = createLoop();
 
 
 describe('loop', function() {
